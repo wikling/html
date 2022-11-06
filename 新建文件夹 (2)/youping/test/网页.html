@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<script>
+		
+		function isPwdl(){
+			//获取用户名
+			var use = document.getElementById("pwd2").value;
+			//判断
+			if(use == null || use == ""){
+				var tip1 = document.getElementById("pwd2Span").innerHTML="*用户名不能为空！";
+				return false;
+			}else{
+				var tip1 = document.getElementById("pwd2Span");
+				tip1.innerHTML="<font color='green'>*用户名合法！</font>";
+			}
+		}
+		
+		// 密码不能为空
+		function isPwd(){
+		    var text= document.getElementById("pwd1").value;
+		    var re =/^(?=.*[a-z])(?=.*\d)[^]{8,16}$/;
+		    var result =  re.test(text);
+		    if(!result) {
+		        document.getElementById("pwd1Span").innerHTML = "密码必须包含数字,字母,且不少于8位";
+		        return false;
+		    }else {
+		        document.getElementById("pwd1Span").innerHTML = "";
+		        return true;
+		    }
+		};
+		
+
+		// 提交按钮
+		function jiao(){
+			if(confirm("提交成功")){
+				return true;
+			};
+			return false;
+		}
+	</script>
+	<style>
+		body{
+			width: 100%;
+			hyphens: 100%;
+			background: url('images/wangxinnian.jpg')no-repeat;
+			background-size: 100%;
+		}
+		table{
+			line-height: 30px;
+			margin: 150px;
+			font-family: 黑体;
+			font-size: 15px;
+			color: #fff;
+		}
+	</style>
+	<body>
+		<form>
+			<table>
+				<tr>
+					<td>姓名:</td>
+					<td>
+						<input type="password" id="pwd2"  name="pwd2" onblur="isPwdl()" /><br/>
+						    <span id="pwd2Span"  style="color: red;font-family: 楷体"></span>
+					</td>
+				</tr>
+				<tr>
+					<td>密码:</td>
+					<td>
+						<input type="password" id="pwd1"  name="pwd1" onblur="isPwd()" />
+						    <span id="pwd1Span"  style="color: red;font-family: 楷体"></span>
+					</td>
+				</tr>
+				<tr>
+					<td>性别:</td>
+					<td>
+						<input type="radio" name="sex" value="男"/>男
+						<input type="radio" name="sex" value="女"/>女
+					</td>
+				</tr>
+				<tr>
+					<td>血型:</td>
+					<td>
+						<input type="radio" name=" blood style" value="A"/>A
+						<input type="radio" name=" blood style" value="B"/>B
+						<input type="radio" name=" blood style" value="AB"/>AB
+						<input type="radio" name=" blood style" value="O"/>O
+					</td>
+				</tr>
+				<tr>
+					<td>性格:</td>
+					<td>
+						<input type="checkbox" name="character" value="活泼开朗"/>活泼开朗
+						<input type="checkbox" name="character" value="社交恐惧"/>社交恐惧
+						<input type="checkbox" name="character" value="社交流弊"/>社交流弊
+					</td>
+				</tr>
+				<tr>
+					<tr>
+						<td>爱好：</td>
+						<td>
+							<input type="checkbox" name="character" value="打游戏"/>打游戏
+							<input type="checkbox" name="character" value="爬山"/>爬山
+							<input type="checkbox" name="character" value="社交流弊"/>听歌
+							<input type="checkbox" name="character" value="看小说">看小说
+						</td>
+					</tr>
+					<tr>
+					<td>文件:</td>
+					<td>
+						<input type="text" id="file" placeholder="选填"/>
+						<input type="button" id="fileTo" webkitdirectory="" value="浏览"/>
+					</td>
+				</tr>
+				<tr>
+					<td>简介:</td>
+					<td>
+						<input type="text" id="mi" placeholder="选填"/>
+					</td>
+				</tr>
+				<tr>
+					<td>城市:</td>
+					<td>
+						<select id="Sichuan">
+							<option value="选择城市">--请选择--</option>
+							<option value="成都市">成都市</option>
+							<option value="自贡市">自贡市</option>
+							<option value="南充市">南充市</option>
+							<option value="绵阳市">绵阳市</option>
+							<option value="攀枝花">攀枝花</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="3">
+						<input type="submit" id="tijiao" value="提交" onclick="jiao()"/>
+						<input type="reset" id="chongzhi" value="重置" onclick="zhi()"/>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>

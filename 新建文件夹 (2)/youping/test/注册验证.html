@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>注册验证</title>
+	</head>
+	<script>
+		//提示用户输入用户名
+		function yonghu(){
+			//获取用户名
+			var use = document.getElementById('user').value;
+			//判断
+			if(use == null || use == ""){
+				var tip1 = document.getElementById('user-tip');
+				tip1.innerHTML="*用户名不能为空！";
+			}else{
+				var tip1 = document.getElementById('user-tip');
+				tip1.innerHTML="<font color='green'>*用户名合法！</font>";
+			}
+		}
+		//判断密码是否为六位数
+		function mima(){
+			//获取输入的第一次的密码
+			var mima = document.getElementById('Password').value;
+			//获取密码提示
+			var tip2 = document.getElementById('Password-tip');
+			if(mima.length < 10 || mima  == ""){
+				tip2.innerHTML = "*密码最少10位！"
+			}else{
+				tip2.innerHTML = "<font color='green'>*密码合法！</font>"
+			}
+		}
+		function yanzhen(){
+			// 判断密码是否一致
+			var mima = document.getElementById('VerifyPassword').value;
+			var remima = document.getElementById('Password').value;
+			//获取提示
+			var tip3 = document.getElementById('VerifyPassword-tip');
+			//判断
+			if(mima == remima){
+				tip3.innerHTML="<font color='green'>*密码一致</font>";
+			}else{
+				tip3.innerHTML="*密码不一致";
+			}
+		}
+	</script>
+	<style>
+		body{
+			width: 500px;
+			height: 500px;
+			background: url('./images/guanyu.jpg')no-repeat;
+			background-size: 100%;
+		}
+		table{
+			width: 100%;
+			border: 0;
+			height: 100%;
+			color: #fff;
+		}
+	</style>
+	<body>
+		<form>
+			<table>
+				<tr>
+					<td>用户注册</td>
+				</tr>
+				<tr>
+					<td>用户名：</td>
+					<td>
+						<input type="text" id="user" placeholder="请输入用户名" onblur="yonghu()"/>
+					</td>
+					<td>
+						<font color="red" id="user-tip"></font>
+					</td>
+				</tr>
+				<tr>
+					<td>密码：</td>
+					<td>
+						<input type="password" id="Password" placeholder="请输入密码" onblur="mima()"/>
+					</td>
+					<td>
+						<font color="red" id="Password-tip"></font>
+					</td>
+				</tr>
+				<tr>
+					<td>验证密码：</td>
+					<td>
+						<input type="password" id="VerifyPassword" placeholder="再次输入密码" onkeyup="yanzhen()"/>
+					</td>
+					<td>
+						<font color="red" id="VerifyPassword-tip"></font>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>
