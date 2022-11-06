@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+			<div class="ye">
+				
+			</div>
+			<input type="text" id="inCh" onblur="change()">
+		</body>
+</html>
+<style>
+	.ye{
+		width: 450px;
+		height: 400px;
+		background-image: url("images/ppt.jpg");
+		background-size: 100%;
+	}
+</style>
+<script type="text/javascript">
+function change(){
+			alert("你写了啥！")
+			var a = document.getElementById('inCh').value;
+			if(a!=null&&a!=""){
+				alert("你输入的值是："+a);
+			}
+		}
+
+
+</script>
